@@ -7,8 +7,7 @@
 </head>
 
 <body style="background-color:blue;">
-
-    @keyframes flashing {
+<style>@keyframes flashing {
     0%, 100% {
         background-color: yellow;
     }
@@ -21,10 +20,10 @@
 
 animation: flashing 0.5s infinite;
     }
+    "</style>
 
 
 
-}"
 
     <div id="app">
         <img :src="dog" style="transform:rotate(23deg)" />
