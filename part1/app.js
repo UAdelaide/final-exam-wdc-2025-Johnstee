@@ -6,7 +6,7 @@ var mysql = require('mysql2/promise');
 
 var app = express();
 
-const fs =
+const fs = require('fs/promises');
 
 app.use(logger('dev'));
 app.use(express.json());
