@@ -99,10 +99,13 @@ let db;
     );
     `);
 
-    await db.execute(`
-insert into Users(username,email,password_hash,role) values('alice123','alice@example.com','hashed123','owner'),
-insert into Users(username,email,password_hash,role) values('bobwalker','bob@example.com','hashed456','walker'),
-insert into Users(username,email,password_hash,role) values('carol123','carol@example.com','hashed789','owner'),
+
+
+await db.execute(`insert into Users(username,email,password_hash,role) values('alice123','alice@example.com','hashed123','owner'),
+
+await db.execute(`insert into Users(username,email,password_hash,role) values('bobwalker','bob@example.com','hashed456','walker'),
+
+await db.execute(`insert into Users(username,email,password_hash,role) values('carol123','carol@example.com','hashed789','owner'),
 insert into Users(username,email,password_hash,role) values('frederick','fred@example.com','hashed999','owner'),
 insert into Users(username,email,password_hash,role) values('emily','emily@example.com','hashed888','walker'),
 
