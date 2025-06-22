@@ -32,7 +32,7 @@ let db;
             host: 'localhost',
             user: 'root',
             password: '',
-            database: 'Dogwalkservice'
+            database: 'DogWalkService'
         });
 
 
