@@ -134,11 +134,11 @@ app.get('/', async (req, res) => {
 
 
 app.get('/api/dogs/', async (req, res) => {
-        try {
-    const [response] = await db.query(`SELECT * FROM Dogs`);
-    res.json(response);
-        }catch (err) {
-        res.status(500).json({ error: 'Failed to fetch books' });
+    try {
+        const [response] = await db.query(`SELECT * FROM Dogs`);
+        res.json(response);
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch dogs' });
     }
 
 });
