@@ -146,7 +146,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
 
 app.get('/api/walkers/summary', async (req, res) => {
     try {
-        const [response] = await db.query(`SELECT COUNT(rating) AS FROM WalkRatings WHERE walker_id = 2`);
+        const [response] = await db.query(`SELECT COUNT(rating) AS total_ratings FROM WalkRatings WHERE walker_id = 2`);
         res.json(response);
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch open walk requests' });
