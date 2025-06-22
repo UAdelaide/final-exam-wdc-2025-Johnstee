@@ -117,7 +117,7 @@ let db;
         await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Pinky'),'2025-06-15 01:30:00',15,'Dogpark','completed')`);
         await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Pinky'),'2025-06-16 01:30:00',15,'Dogpark','completed')`);
         await db.execute(`insert into WalkRatings(request_id,walker_id,owner_id,rating,comments) values(5,2,4,4,'good walker')`);
-        await db.execute(`insert into WalkRatings(request_id,walker_id,owner_id,rating,comments) values(5,2,4,3,'ok walker today')`);
+        await db.execute(`insert into WalkRatings(request_id,walker_id,owner_id,rating,comments) values(6,2,4,3,'ok walker today')`);
 
 
     } catch (err) {
