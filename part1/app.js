@@ -37,7 +37,7 @@ let db;
         });
 
         const dogwalksdatabase = await fs.readFile('dogwalks.sql');
-await db.query
+await db.execute(sql);
 
 
 
