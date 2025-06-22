@@ -6,7 +6,9 @@
     <title>Document</title>
 </head>
 
-<body style="background-color:blue; @keyframes flashing {
+<body style="background-color:blue;">
+
+    @keyframes flashing {
     0%, 100% {
         background-color: yellow;
     }
@@ -22,7 +24,7 @@ animation: flashing 0.5s infinite;
 
 
 
-}">
+}"
 
     <div id="app">
         <img :src="dog" style="transform:rotate(23deg)" />
