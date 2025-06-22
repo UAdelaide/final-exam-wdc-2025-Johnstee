@@ -114,7 +114,7 @@ let db;
         await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Bella'),'2025-06-10 09:30:00',45,'Beachside Ave','accepted')`);
         await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Marty'),'2025-06-12 05:30:00',42,'Dogpark','accepted')`);
         await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Clifford'),'2025-06-14 03:30:00',10,'Dogpark','accepted')`);
-        await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Pinky'),'2025-06-15 01:30:00',15,'Dogpark','accepted')`);
+        await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Pinky'),'2025-06-15 01:30:00',15,'Dogpark','completed')`);
         await db.execute(`insert into WalkRatings(rating,comments) values((select dog_id from Dogs where name = 'Pinky'),'2025-06-15 01:30:00',15,'Dogpark','accepted')`);
 
 
