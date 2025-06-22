@@ -148,7 +148,7 @@ app.get('/api/walkers/summary', async (req, res) => {
         const [walkers] = await db.query(`SELECT user_id FROM Users WHERE role='walker'`);
         const arrLength = walkers.length;
 
-        for ()
+        for (let i = 0; i < arrLength; i++)
 
         res.json(walkers);
     } catch (err) {
