@@ -117,7 +117,7 @@ app.get('/', async (req, res) => {
 
 
 app.get('/api/dogs/', async (req, res) => {
-const [response] = await db.query(`SELECT dog_name FROM Dogs WHERE dog_id = 1`);
+const [response] = await db.query(`SELECT * FROM Dogs`);
 res.json(response);
 
 });
