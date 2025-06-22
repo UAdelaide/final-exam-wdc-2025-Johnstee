@@ -100,7 +100,7 @@ let db;
     `);
 
     await db.execute(`
-insert into Users(username,email,password_hash,role) values('alice123','alice@example.com','hashed123','owner');
+insert into Users(username,email,password_hash,role) values('alice123','alice@example.com','hashed123','owner'),
 insert into Users(username,email,password_hash,role) values('bobwalker','bob@example.com','hashed456','walker');
 insert into Users(username,email,password_hash,role) values('carol123','carol@example.com','hashed789','owner');
 insert into Users(username,email,password_hash,role) values('frederick','fred@example.com','hashed999','owner');
@@ -116,7 +116,7 @@ insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status)
 insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Bella'),'2025-06-10 09:30:00',45,'Beachside Ave','accepted');
 insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Marty'),'2025-06-12 05:30:00',42,'Dogpark','accepted');
 insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Clifford'),'2025-06-14 03:30:00',10,'Dogpark','accepted');
-insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Pinky'),'2025-06-15 01:30:00',15,'Dogpark','accepted');`)
+insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Pinky'),'2025-06-15 01:30:00',15,'Dogpark','accepted');`);
 
 
     } catch (err) {
