@@ -135,7 +135,7 @@ app.get('/', async (req, res) => {
 
 app.get('/api/dogs/', async (req, res) => {
     try {
-        const [response] = await db.query(`SELECT name, size, users.username FROM dogs INNER JOIN users ON dogs.owner_id=users.user_id`);
+        const [response] = await db.query(`SELECT name, size, Users.username FROM Dogs INNER JOIN users ON dogs.owner_id=users.user_id`);
         res.json(response);
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch dogs' });
