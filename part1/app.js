@@ -117,7 +117,7 @@ app.get('/', async (req, res) => {
 
 
 app.get('/api/dogs/', async (req, res) => {
-const response = 
+const response = await db.query(`SELECT * FROM`
 
 });
 
