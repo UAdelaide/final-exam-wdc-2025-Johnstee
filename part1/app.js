@@ -101,24 +101,24 @@ let db;
 
 
 
-await db.execute(`insert into Users(username,email,password_hash,role) values('alice123','alice@example.com','hashed123','owner'))`);
+await db.execute(`insert into Users(username,email,password_hash,role) values('alice123','alice@example.com','hashed123','owner')`);
 
-await db.execute(`insert into Users(username,email,password_hash,role) values('bobwalker','bob@example.com','hashed456','walker'))`);
+await db.execute(`insert into Users(username,email,password_hash,role) values('bobwalker','bob@example.com','hashed456','walker')`);
 
-await db.execute(`insert into Users(username,email,password_hash,role) values('carol123','carol@example.com','hashed789','owner'))`);
+await db.execute(`insert into Users(username,email,password_hash,role) values('carol123','carol@example.com','hashed789','owner')`);
 
-await db.execute(`insert into Users(username,email,password_hash,role) values('frederick','fred@example.com','hashed999','owner'))`);
+await db.execute(`insert into Users(username,email,password_hash,role) values('frederick','fred@example.com','hashed999','owner')`);
 
-await db.execute(`insert into Users(username,email,password_hash,role) values('emily','emily@example.com','hashed888','walker'))`);
+await db.execute(`insert into Users(username,email,password_hash,role) values('emily','emily@example.com','hashed888','walker')`);
 
 
-await db.execute(`insert into Dogs(name,size,owner_id) values('Max', 'medium', (select user_id from Users where username = 'alice123'))`);
+await db.execute(`insert into Dogs(name,size,owner_id) values('Max', 'medium', (select user_id from Users where username = 'alice123')`);
 
-await db.execute(`insert into Dogs(name,size,owner_id) values('Bella', 'small', (select user_id from Users where username = 'carol123'))`);
+await db.execute(`insert into Dogs(name,size,owner_id) values('Bella', 'small', (select user_id from Users where username = 'carol123')`);
 
-await db.execute(`insert into Dogs(name,size,owner_id) values('Marty', 'large', (select user_id from Users where username = 'alice123'))`);
+await db.execute(`insert into Dogs(name,size,owner_id) values('Marty', 'large', (select user_id from Users where username = 'alice123')`);
 
-await db.execute(`insert into Dogs(name,size,owner_id) values('Clifford', 'large', (select user_id from Users where username = 'frederick'))`);
+await db.execute(`insert into Dogs(name,size,owner_id) values('Clifford', 'large', (select user_id from Users where username = 'frederick')`);
 
 await db.execute(`insert into Dogs(name,size,owner_id) values('Pinky', 'small', (select user_id from Users where username = 'emily'))`);
 
