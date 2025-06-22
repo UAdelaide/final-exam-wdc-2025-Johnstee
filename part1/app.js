@@ -121,7 +121,7 @@ let db;
 
         await db.execute(`insert into Dogs(name,size,owner_id) values('Clifford', 'large', (select user_id from Users where username = 'frederick'))`);
 
-        await db.execute(`insert into Dogs(name,size,owner_id) values('Pinky', 'small', (select user_id from Users where username = 'emily')`);
+        await db.execute(`insert into Dogs(name,size,owner_id) values('Pinky', 'small', (select user_id from Users where username = 'emily'))`);
 
 
         await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Max'),'2025-06-10 08:00:00',30,'Parklands','open')`);
