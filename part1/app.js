@@ -39,7 +39,7 @@ let db;
         const dogwalksdatabase = await fs.readFile('dogwalks.sql', 'utf-8');
         await db.query(dogwalksdatabase);
 
-
+/*
         await db.execute(`
 insert into Users(username,email,password_hash,role) values('alice123','alice@example.com','hashed123','owner');
 
@@ -77,7 +77,7 @@ insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status)
 
 insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Pinky'),'2025-06-15 01:30:00',15,'Dogpark','accepted');
       )
-    `);
+    `);*/
 
 
     } catch (err) {
