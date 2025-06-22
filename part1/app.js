@@ -34,6 +34,8 @@ let db;
             database: 'dogwalkservice'
         });
 
+        await db.execute(`
+            DROP DATABASE IF EXISTS DogWalkService;`);
         // Create a table if it doesn't exist
         await db.execute(`
     CREATE TABLE IF NOT EXISTS Users (
@@ -101,37 +103,37 @@ let db;
 
 
 
-await db.execute(`insert into Users(username,email,password_hash,role) values('alice123','alice@example.com','hashed123','owner')`);
+        await db.execute(`insert into Users(username,email,password_hash,role) values('alice123','alice@example.com','hashed123','owner')`);
 
-await db.execute(`insert into Users(username,email,password_hash,role) values('bobwalker','bob@example.com','hashed456','walker')`);
+        await db.execute(`insert into Users(username,email,password_hash,role) values('bobwalker','bob@example.com','hashed456','walker')`);
 
-await db.execute(`insert into Users(username,email,password_hash,role) values('carol123','carol@example.com','hashed789','owner')`);
+        await db.execute(`insert into Users(username,email,password_hash,role) values('carol123','carol@example.com','hashed789','owner')`);
 
-await db.execute(`insert into Users(username,email,password_hash,role) values('frederick','fred@example.com','hashed999','owner')`);
+        await db.execute(`insert into Users(username,email,password_hash,role) values('frederick','fred@example.com','hashed999','owner')`);
 
-await db.execute(`insert into Users(username,email,password_hash,role) values('emily','emily@example.com','hashed888','walker')`);
-
-
-await db.execute(`insert into Dogs(name,size,owner_id) values('Max', 'medium', (select user_id from Users where username = 'alice123')`);
-
-await db.execute(`insert into Dogs(name,size,owner_id) values('Bella', 'small', (select user_id from Users where username = 'carol123')`);
-
-await db.execute(`insert into Dogs(name,size,owner_id) values('Marty', 'large', (select user_id from Users where username = 'alice123')`);
-
-await db.execute(`insert into Dogs(name,size,owner_id) values('Clifford', 'large', (select user_id from Users where username = 'frederick')`);
-
-await db.execute(`insert into Dogs(name,size,owner_id) values('Pinky', 'small', (select user_id from Users where username = 'emily')`);
+        await db.execute(`insert into Users(username,email,password_hash,role) values('emily','emily@example.com','hashed888','walker')`);
 
 
-await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Max'),'2025-06-10 08:00:00',30,'Parklands','open')`);
+        await db.execute(`insert into Dogs(name,size,owner_id) values('Max', 'medium', (select user_id from Users where username = 'alice123')`);
 
-await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Bella'),'2025-06-10 09:30:00',45,'Beachside Ave','accepted')`);
+        await db.execute(`insert into Dogs(name,size,owner_id) values('Bella', 'small', (select user_id from Users where username = 'carol123')`);
 
-await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Marty'),'2025-06-12 05:30:00',42,'Dogpark','accepted')`);
+        await db.execute(`insert into Dogs(name,size,owner_id) values('Marty', 'large', (select user_id from Users where username = 'alice123')`);
 
-await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Clifford'),'2025-06-14 03:30:00',10,'Dogpark','accepted')`);
+        await db.execute(`insert into Dogs(name,size,owner_id) values('Clifford', 'large', (select user_id from Users where username = 'frederick')`);
 
-await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Pinky'),'2025-06-15 01:30:00',15,'Dogpark','accepted')`);
+        await db.execute(`insert into Dogs(name,size,owner_id) values('Pinky', 'small', (select user_id from Users where username = 'emily')`);
+
+
+        await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Max'),'2025-06-10 08:00:00',30,'Parklands','open')`);
+
+        await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Bella'),'2025-06-10 09:30:00',45,'Beachside Ave','accepted')`);
+
+        await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Marty'),'2025-06-12 05:30:00',42,'Dogpark','accepted')`);
+
+        await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Clifford'),'2025-06-14 03:30:00',10,'Dogpark','accepted')`);
+
+        await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Pinky'),'2025-06-15 01:30:00',15,'Dogpark','accepted')`);
 
 
     } catch (err) {
@@ -151,8 +153,8 @@ app.get('/', async (req, res) => {
 
 
 app.get('/api/dogs/', async (req, res) => {
-const [response] = await db.query(`SELECT * FROM Dogs`);
-res.json(response);
+    const [response] = await db.query(`SELECT * FROM Dogs`);
+    res.json(response);
 
 });
 
