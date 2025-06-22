@@ -4,6 +4,25 @@
 <head>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>Document</title>
+       <style>
+        @keyframes flashing {
+
+            0%,
+            100% {
+                background-color: yellow;
+            }
+
+            50% {
+                background-color: blue;
+            }
+
+            body {
+
+                animation: flashing 0.5s infinite;
+            }
+
+
+    </style>
 </head>
 
 <body style="background-color:blue;">
