@@ -146,7 +146,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
 
 app.get('/api/walkers/summary', async (req, res) => {
     try {
-        const [response] = await db.query(`SELECT Users.username AS walker_username, COUNT(rating) AS total_ratings, AVG(rating) AS average_rating, COUNT(status) AS completed_walks FROM WalkRatings INNER JOIN WalkRequests ON WalkRatings.request_id=WalkRequests.request_id INNER JOIN Users ON WalkRatings.walker_id=Users.user_id WHERE walker_id = 2 AND `);
+        const [response] = await db.query(`SELECT Users.username AS walker_username, COUNT(rating) AS total_ratings, AVG(rating) AS average_rating, COUNT(status) AS completed_walks FROM WalkRatings INNER JOIN WalkRequests ON WalkRatings.request_id=WalkRequests.request_id INNER JOIN Users ON WalkRatings.walker_id=Users.user_id WHERE walker_id = 2 AND WalkRequests.status='accepted'`);
         res.json(response);
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch open walk requests' });
