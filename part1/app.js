@@ -125,7 +125,7 @@ let db;
 
 app.get('/api/dogs/', async (req, res) => {
     try {
-        const [response] = await db.query(`SELECT name AS dog_name, size, Users.username AS owners_username FROM Dogs INNER JOIN Users ON Dogs.owner_id=Users.user_id`);
+        const [response] = await db.query(`SELECT name AS dog_name, size, Users.username AS owner_username FROM Dogs INNER JOIN Users ON Dogs.owner_id=Users.user_id`);
         res.json(response);
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch dogs' });
@@ -135,7 +135,7 @@ app.get('/api/dogs/', async (req, res) => {
 
 app.get('/api/walkrequests/open', async (req, res) => {
     try {
-        const [response] = await db.query(`SELECT request_id, Dogs.name AS dog_name, requested_time, duration_minutes, location, Users.username AS owners_username FROM WalkRequests INNER JOIN Dogs ON WalkRequests.dog_id=Dogs.dog_id INNER JOIN Users ON Dogs.owner_id=Users.user_id WHERE status='open'`);
+        const [response] = await db.query(`SELECT request_id, Dogs.name AS dog_name, requested_time, duration_minutes, location, Users.username AS owner_username FROM WalkRequests INNER JOIN Dogs ON WalkRequests.dog_id=Dogs.dog_id INNER JOIN Users ON Dogs.owner_id=Users.user_id WHERE status='open'`);
         res.json(response);
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch open walk requests' });
