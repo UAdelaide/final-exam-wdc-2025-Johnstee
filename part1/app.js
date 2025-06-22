@@ -36,7 +36,8 @@ let db;
       database: 'dogwalkservice'
     });
 
-const dogwalksdatabase = await fs.readFile()
+const dogwalksdatabase = await fs.readFile('dogwalks.sql');
+
 
 
 
