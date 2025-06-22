@@ -115,7 +115,7 @@ let db;
         await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Marty'),'2025-06-12 05:30:00',42,'Dogpark','accepted')`);
         await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Clifford'),'2025-06-14 03:30:00',10,'Dogpark','accepted')`);
         await db.execute(`insert into WalkRequests(dog_id,requested_time,duration_minutes,location,status) values((select dog_id from Dogs where name = 'Pinky'),'2025-06-15 01:30:00',15,'Dogpark','completed')`);
-        await db.execute(`insert into WalkRatings(request_id,walker_id,owner_id,rating,comments) values(1,2,4,6,'good walker)`);
+        await db.execute(`insert into WalkRatings(request_id,walker_id,owner_id,rating,comments) values(1,2,4,6,'good walker')`);
 
 
     } catch (err) {
@@ -146,7 +146,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
 
 app.get('/api/walkers/summary', async (req, res) => {
     try {
-        const [response] = await db.query(`SELECT COUNT(rating) FROM WalkRatings WHERE walker_id = 3`);
+        const [response] = await db.query(`SELECT COUNT(rating) FROM WalkRatings WHERE walker_id = 2`);
         res.json(response);
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch open walk requests' });
