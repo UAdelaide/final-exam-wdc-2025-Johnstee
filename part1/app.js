@@ -145,7 +145,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
 
 app.get('/api/walkers/summary', async (req, res) => {
     try {
-        const [walkers] = await db.query(`SELECT * FROM Users WHERE role='walker'`)
+        const [walkers] = await db.query(`SELECT * FROM Users WHERE role='walker'`);
         const [response] = await db.query(`SELECT COUNT(rating_id FROM WalkRatings`);
         res.json(response);
     } catch (err) {
