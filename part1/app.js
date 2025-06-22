@@ -22,6 +22,7 @@ let db;
             password: '' // Set your MySQL root password
         });
 
+        
         // Create the database if it doesn't exist
         await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService');
         await connection.end();
@@ -34,10 +35,7 @@ let db;
             database: 'dogwalkservice'
         });
 
-        await db.execute(`
-            DROP DATABASE IF EXISTS DogWalkService;`);
-        // Create a table if it doesn't exist
-        await db.execute(`
+
     CREATE TABLE IF NOT EXISTS Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
