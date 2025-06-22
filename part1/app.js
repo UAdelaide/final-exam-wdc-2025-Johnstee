@@ -151,6 +151,10 @@ app.get('/api/walkers/summary', async (req, res) => {
         const allData = [];
         const [walkers] = await db.query(`SELECT user_id FROM Users WHERE role = 'walker'`);
 
+        for (const walker of walkers) {
+            
+        }
+
         const [response] = await db.query(`SELECT Users.username AS walker_username, COUNT(rating) AS total_ratings, AVG(rating) AS average_rating, COUNT(status) AS completed_walks FROM WalkRatings INNER JOIN WalkRequests ON WalkRatings.request_id=WalkRequests.request_id INNER JOIN Users ON WalkRatings.walker_id=Users.user_id WHERE WalkRequests.status='completed' AND walker_id = ?`, []);
         res.json(response);
     } catch (err) {
