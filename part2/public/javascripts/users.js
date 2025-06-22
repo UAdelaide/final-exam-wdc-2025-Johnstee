@@ -3,7 +3,7 @@ var router = express.router();
 
 
 router.post('/login', function (req, res, next) {
-    if
+    if(req.body.user 
 
 
 }
