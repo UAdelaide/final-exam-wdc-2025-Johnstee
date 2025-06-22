@@ -39,8 +39,7 @@ let db;
         const dogwalksdatabase = await fs.readFile('dogwalks.sql');
         await db.execute(dogwalksdatabase);
 
-
-        // Create a table if it doesn't exist
+        
         await db.execute(`
       CREATE TABLE IF NOT EXISTS books (
         id INT AUTO_INCREMENT PRIMARY KEY,
