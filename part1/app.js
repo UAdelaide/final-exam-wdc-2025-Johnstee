@@ -1,5 +1,4 @@
 var express = require('express');
-var router = express.Router();
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -115,6 +114,9 @@ app.get('/', async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch books' });
     }
 });
+
+
+app.get('/')
 
 app.use(express.static(path.join(__dirname, 'public')));
 
