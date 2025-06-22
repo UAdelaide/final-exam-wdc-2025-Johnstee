@@ -2,4 +2,4 @@ var express = require('express');
 var router = express.router();
 
 
-router.post('/')
+router.post('/login', function (req, res, next)) 
